@@ -6,11 +6,11 @@ let scale;
 let initialscale;
 
 function preload() {
-	sfondo = loadImage("./assets/sfondo.jpg");
-	jordan = loadImage("./assets/michael.png")
+	sfondo = loadImage("./assets/Sfondo.jpg");
+	jordan = loadImage("./assets/Michael.png")
 	dunk = loadImage("./assets/basket_dunk.png")
-	basket = loadImage("./assets/basket.png")
-	malone = loadImage("./assets/malone.png")
+	basket = loadImage("./assets/Basket.png")
+	malone = loadImage("./assets/Malone.png")
 	
 	crowd =loadSound("./assets/crowd.mp3")
 	piano =loadSound("./assets/basket.mp3")
