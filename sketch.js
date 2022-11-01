@@ -10,6 +10,9 @@ function preload() {
 	jordan = loadImage("./assets/michael.png")
 	basket = loadImage("./assets/basket.png")
 	malone = loadImage("./assets/malone.png")
+	
+	crowd =loadSound("./assets/crowd.mp3")
+	piano =loadSound("./assets/basket.mp3")
 }
 
 
@@ -25,6 +28,14 @@ function setup() {
 
 	initialscale = height/jordan.height
 	scale = initialscale*1.1
+
+	analyzer = new p5.Amplitude();
+  	analyzer.setInput(crowd);
+	crowd.loop(); 
+
+	textFont("Bebas Neue")
+	fill(255)
+	
 	
 }
 
@@ -40,12 +51,20 @@ function draw() {
 		pop();}
 
 	//scritta
-
-	textFont("Bebas Neue")
+	
+	
+	
+	
+	
 	textSize(height)
-	fill(255)
 	textAlign(CENTER, CENTER)
 	text("JUMP", width/2, height/2);
+	
+
+	
+	textSize(height/20);
+	textAlign(RIGHT, BASELINE);
+	text("click and drag mike to the basket", width-50, height-50);
 	
 
 	//micheal e basket
@@ -61,7 +80,8 @@ function draw() {
 	image(basket, 0, 0, basket.width*scale, basket.height*scale)
 	
 
-	
+	 
+	  
 
 
 }
@@ -74,6 +94,10 @@ function mouseDragged() {
 	scale = initialscale*scaleratio	
 
 	maloneY = map(mouseX, width, 0, 200, -100)
+
+	if (mouseX < width/4 && pmouseX>mouseX) {
+		if (piano.isPlaying() === false){piano.play();}
+		} 
 }
 
 
