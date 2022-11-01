@@ -8,11 +8,13 @@ let initialscale;
 function preload() {
 	sfondo = loadImage("./assets/sfondo.jpg");
 	jordan = loadImage("./assets/michael.png")
+	dunk = loadImage("./assets/basket_dunk.png")
 	basket = loadImage("./assets/basket.png")
 	malone = loadImage("./assets/malone.png")
 	
 	crowd =loadSound("./assets/crowd.mp3")
 	piano =loadSound("./assets/basket.mp3")
+	loud =loadSound("./assets/loud.mp3")
 }
 
 
@@ -69,20 +71,32 @@ function draw() {
 
 	//micheal e basket
 	
-	image(malone, maloneX, maloneY, malone.width*scale, malone.height*scale)
-
-	push()
-	imageMode(CENTER)
-	translate(jordanX, jordanY)
-	image(jordan, 0, 0, jordan.width*scale, jordan.height*scale)
-	pop()
-
-	image(basket, 0, 0, basket.width*scale, basket.height*scale)
 	
+	
+	if (jordanX < width/4) {
 
-	 
-	  
+		image(dunk, 0, 0, basket.width*scale, basket.height*scale)
+		
 
+		if (piano.isPlaying() === false){piano.play();}
+		if (loud.isPlaying() === false){loud.play();}
+
+	} else {
+
+		push()
+			imageMode(CENTER)
+			translate(jordanX, jordanY)
+			image(jordan, 0, 0, jordan.width*scale, jordan.height*scale)
+		pop()
+
+		image(basket, 0, 0, basket.width*scale, basket.height*scale)
+
+		}
+
+	image(malone, maloneX, maloneY, malone.width*scale, malone.height*scale)
+	
+	
+	
 
 }
 
@@ -95,9 +109,7 @@ function mouseDragged() {
 
 	maloneY = map(mouseX, width, 0, 200, -100)
 
-	if (mouseX < width/4 && pmouseX>mouseX) {
-		if (piano.isPlaying() === false){piano.play();}
-		} 
+	
 }
 
 
