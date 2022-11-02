@@ -66,10 +66,26 @@ function draw() {
 	
 	textSize(height/20);
 	textAlign(RIGHT, BASELINE);
-	text("click and drag mike to the basket", width-50, height-50);
+	text("use arrows or click and drag mike to the basket", width-50, height-50);
 	
 
 	//micheal e basket
+
+	if (keyIsDown(LEFT_ARROW)) {
+		jordanX -= 3;
+	  }
+	
+	  if (keyIsDown(RIGHT_ARROW)) {
+		jordanX += 3;
+	  }
+	
+	  if (keyIsDown(UP_ARROW)) {
+		jordanY -= 3;
+	  }
+	
+	  if (keyIsDown(DOWN_ARROW)) {
+		jordanY += 3;
+	  }
 	
 	
 	
