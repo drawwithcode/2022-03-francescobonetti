@@ -112,7 +112,10 @@ function draw() {
 	image(malone, maloneX, maloneY, malone.width*scale, malone.height*scale)
 	
 	
-	
+	let scaleratio = map(jordanX, width, 0, 1, 1.5)
+	scale = initialscale*scaleratio	
+
+	maloneY = map(jordanX, width, 0, 200, -100)
 
 }
 
@@ -120,10 +123,7 @@ function mouseDragged() {
 	jordanX = mouseX;
 	jordanY = mouseY;
 	
-	let scaleratio = map(mouseX, width, 0, 1, 1.5)
-	scale = initialscale*scaleratio	
-
-	maloneY = map(mouseX, width, 0, 200, -100)
+	
 
 	
 }
